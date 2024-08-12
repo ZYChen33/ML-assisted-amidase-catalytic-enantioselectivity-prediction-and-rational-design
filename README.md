@@ -1,5 +1,5 @@
 # ML-assisted amidase-catalytic enantioselectivity prediction and rational design of variants for improving enantioselectivity
-## Package Versions Used
+## Package Versions
 - Python = 3.8
 - scikit-learn = 1.0.2
 - pandas = 1.4.3
