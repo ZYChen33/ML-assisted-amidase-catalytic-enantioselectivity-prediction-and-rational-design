@@ -181,7 +181,7 @@ def select_best_model(Xtr_resampled,ytr_resampled,maxdepth,scoring='f1',model='r
     #best_param=select_best_param(Xtr_resampled,ytr_resampled,maxdepth,scoring=scoring,model=model_)
     if model=='rf':
         clf=RandomForestClassifier(random_state=1,n_estimators=140,max_depth=5,
-                               min_samples_split=3,max_features=7
+                               min_samples_split=4,max_features=7
                               )
     elif model=='svc':
         clf=SVC(random_state=1,C=best_param['C'], gamma= best_param['gamma'],kernel='rbf',probability=True)
@@ -355,7 +355,7 @@ def generate_csv(Xtrain,ytrain,Xtest,ytest,random):
         res_train=pd.DataFrame(result_train,index=["accuracy","recall","precision","AUC","F1"]).T
         res_test=pd.DataFrame(result_test,index=["accuracy","recall","precision","AUC","F1"]).T
         results=pd.concat([res_train,res_test],axis=1)
-        results.to_csv(r'C:\Users\Lenovo\Desktop\80_re_%s.csv' % (score),mode='a',header=False)  ###Requires modification
+        results.to_csv('90_re_%s.csv' % (score),mode='a',header=False)  
 
     return clf_fitted
 
@@ -389,23 +389,27 @@ def get_f1_cvscore(Xtrain,ytrain,Xtest):
 
 if __name__ == "__main__": 
     resampler=[RandomOverSampler(random_state=1)]
-    fea_selected=pd.read_csv(r'C:\Users\Lenovo\Desktop\ee80_81015_sfjtnn_sel.csv').iloc[:,1:].columns    ###Require modification
-    newdata=pd.read_csv(r'C:\Users\Lenovo\Desktop\amidase_test_jtnnsf.csv').iloc[:,1:][fea_selected]   ###Require modification
+    with open("ee90_81015_sfjtnn_sel.csv", "r") as file:
+        fea_selected=pd.read_csv(file).iloc[:,1:].columns 
 
-    X=pd.read_csv(r'C:\Users\Lenovo\Desktop\amidase_jtnnsf.csv').iloc[:,1:][fea_selected]   ###Require modification
+    with open("amidase_test_jtnnsf.csv", "r") as file:
+        newdata=pd.read_csv(file).iloc[:,1:][fea_selected]
+
+    with open("amidase_jtnnsf.csv", "r") as file:
+        X=pd.read_csv(file).iloc[:,1:][fea_selected]
+
     print(X.shape)
 
-    y=pd.read_csv(r"C:\Users\Lenovo\Desktop\g_classification80.csv").iloc[:,1:]   ###Require modification
+    with open("g_classification90.csv", "r") as file:
+        y=pd.read_csv(file).iloc[:,1:]   
     y=np.ravel(y)
     print(y.shape)
 
     X,y=shuffle_data(X,y)
-    Xtrain,Xtest,ytrain,ytest=data_split(X,y,1)
+    Xtrain,Xtest,ytrain,ytest=data_split(X,y,99)
     model_fitted=generate_csv(Xtrain,ytrain,Xtest,ytest,1)
     newdata_pred_res=[]
     print(model_fitted.predict(newdata))
     newdata_pred_res.append(model_fitted.predict(newdata))
     newdata_pred_res_df=pd.DataFrame(newdata_pred_res)
-    newdata_pred_res_df.to_csv(r'C:\Users\Lenovo\Desktop\80_test.csv',mode='a',header=False)
-
-
+    newdata_pred_res_df.to_csv('90_test.csv', mode='a', header=False)
