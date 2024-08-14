@@ -15,9 +15,7 @@ To run the script, you'll need the following Python libraries:
 - sklearn_relief = 1.0.0b2
   
 You can install them using:
-
 pip install <package_name>==<version_number>
-
 For example, to install scikit-learn version 1.0.2, you would run:
 pip install scikit-learn==1.0.2
 
