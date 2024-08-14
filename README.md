@@ -34,7 +34,7 @@ The installation process should take around 5-10 minutes on a standard desktop c
 
 The repository is divided into two main parts:
 - **Descriptors Folder:** This folder contains the code required for generating molecular descriptors and a small sample molecule for testing.
-- **Main Code:** This section contains  the primary machine learning and virtual screening code. The '90.py' script uses a criterion of $\Delta \Delta G^{\neq} = 2.40$ kcal/mol as an example. The necessary data files for training this model and virtual screening are also provided. Users can modify the hyperparameters and criterion in the script to tailor the model to their specific dataset.
+- **Main Code:** This section contains  the primary machine learning and virtual screening code. The `90.py` script uses a criterion of $\Delta \Delta G^{\neq} = 2.40$ kcal/mol as an example. The necessary data files for training this model and virtual screening are also provided. Users can modify the hyperparameters and criterion in the script to tailor the model to their specific dataset.
 
 ## Usage
 
