@@ -180,8 +180,8 @@ def select_best_model(Xtr_resampled,ytr_resampled,maxdepth,scoring='f1',model='r
     #model_=model
     #best_param=select_best_param(Xtr_resampled,ytr_resampled,maxdepth,scoring=scoring,model=model_)
     if model=='rf':
-        clf=RandomForestClassifier(random_state=1,n_estimators=140,max_depth=5,
-                               min_samples_split=4,max_features=7
+        clf=RandomForestClassifier(random_state=1,n_estimators=best_param["n_estimators"],max_depth=best_param['max_depth'],
+                               min_samples_split=best_param['min_samples_split'],max_features=best_param['max_features']
                               )
     elif model=='svc':
         clf=SVC(random_state=1,C=best_param['C'], gamma= best_param['gamma'],kernel='rbf',probability=True)
