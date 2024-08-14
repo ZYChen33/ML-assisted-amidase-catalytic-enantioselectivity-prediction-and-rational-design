@@ -408,8 +408,7 @@ if __name__ == "__main__":
         jtnn_std=pd.read_csv(file).iloc[:,1:]  #as reference
     jtnn_std_col=jtnn_std.columns
     
-    with open("amidase_trial_smiles.txt", "r") as file:
-        new_mole=get_data_smiles(file)   #only smiles
+    new_mole=get_data_smiles("amidase_trial_smiles.txt")   #only smiles
     new_jtnn_df,new_vocabl=get_clique_decomposition(new_mole)
     new_jtnn=np.array(new_jtnn_df)
     jtnn_array=np.zeros((len(new_mole),len(jtnn_std_col)))
@@ -427,7 +426,7 @@ with open("amidase_sf_trial.csv", "r") as file:
 sf_col=list(sf.columns)
 
 with open("amidase_jtnn_trial.csv", "r") as file: 
-jtnn=pd.read_csv(file).iloc[:,1:]
+    jtnn=pd.read_csv(file).iloc[:,1:]
 jtnn_col=list(jtnn.columns)
 sf_jtnn=pd.concat([sf,jtnn],axis=1,ignore_index=True)
 sfjtnn_col=sf_col+jtnn_col
