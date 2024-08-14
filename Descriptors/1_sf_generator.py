@@ -158,8 +158,7 @@ def generate_X(G_rad,G_angle,Nrad,Nang,B,molecular):
 
 if __name__ == "__main__": 
     Nrad,Nang,B=8,10,15        
-    with open("amidase_trial.txt", "r") as file:
-        molecular_,data_,targets_,elements_=read_file(file)      
+    molecular_,data_,targets_,elements_=read_file("amidase_trial.txt")      
     G_rad=calc_rad_SF(Nrad,molecular_,data_,elements_)
     G_angle=calc_angular_mole_SFs(Nang,molecular_,data_,elements_)
     X=generate_X(G_rad,G_angle,Nrad,Nang,B,molecular_)
