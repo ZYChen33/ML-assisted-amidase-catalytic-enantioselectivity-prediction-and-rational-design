@@ -5,6 +5,7 @@ The 90.py uses a criterion of \(\Delta \Delta G^{\neq}\)= 2.40 kcal/mol as an ex
 
 ## Requirements
 - Python = 3.8
+
 To run the script, you'll need the following Python libraries:
 - scikit-learn = 1.0.2
 - pandas = 1.4.3
