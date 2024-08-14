@@ -14,6 +14,7 @@ To run the script, you'll need the following Python libraries:
 - imbalanced_learn = 0.12.2
 - rdkit = 2023.9.6
 - sklearn_relief = 1.0.0b2
+- scipy = 1.10.1
   
 You can install them using:  
 pip install <package_name>==<version_number>  
