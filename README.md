@@ -1,6 +1,7 @@
 # ML-assisted amidase-catalytic enantioselectivity prediction and rational design of variants for improving enantioselectivity
 
 This repository contains the code and data used in "ML-assisted Amidase-Catalytic Enantioselectivity Prediction and Rational Design of Variants for Improving Enantioselectivity." It includes tools for generating descriptors, training models, and performing virtual screening.
+[![DOI](https://zenodo.org/badge/840572472.svg)](https://zenodo.org/doi/10.5281/zenodo.13759700)
 
 ## Requirements
 
